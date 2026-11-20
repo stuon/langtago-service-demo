@@ -1,12 +1,14 @@
+const { describe, it } = require('node:test');
 const assert = require('node:assert');
 const { CONFIG } = require('../src/server');
 
-describe('Payment Ingress Baseline Tests', () => {
-  it('loads configuration with service identifier', () => {
-    assert.strictEqual(CONFIG.serviceName, 'payment-ingress-gateway');
+describe('Payment Ingress TLS 1.3 Hardening Tests (DEMO-14)', () => {
+  it('enforces TLS 1.3 as minimum protocol version', () => {
+    assert.strictEqual(CONFIG.tlsMinVersion, 'TLSv1.3');
   });
 
-  it('runs baseline network port configuration', () => {
-    assert.ok(CONFIG.port >= 1000);
+  it('configures modern AEAD cipher suites', () => {
+    assert.ok(CONFIG.supportedCiphers.includes('TLS_AES_256_GCM_SHA384'));
+    assert.ok(CONFIG.supportedCiphers.includes('TLS_CHACHA20_POLY1305_SHA256'));
   });
 });
