@@ -1,0 +1,13 @@
+{
+  "name": "langtago-service-demo",
+  "version": "1.0.0",
+  "description": "Langtago Payment & Audit Gateway - Reference Microservice for EvidenceLog SOC 2 Compliance Verification",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test"
+  },
+  "keywords": ["soc2", "evidencelog", "microservice", "jira-demo"],
+  "author": "Langtago Team",
+  "license": "MIT"
+}
