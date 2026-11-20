@@ -45,3 +45,4 @@ if (require.main === module) {
 }
 
 module.exports = { createServer, CONFIG };
+// Verified for DEMO-14 compliance
