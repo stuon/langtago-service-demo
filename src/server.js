@@ -23,6 +23,17 @@ function createServer() {
       }));
     }
 
+    if (req.url === '/v1/audit/integrity' && req.method === 'GET') {
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+        status: 'VERIFIED',
+        ticketKey: 'DEMO-21',
+        standard: 'ISO 27001 A.8.32 / SOC 2 CC8.1',
+        repository: 'stuon/langtago-service-demo',
+        traceability: 'Dual-party verified commit linkage'
+      }));
+    }
+
     if (req.url === '/v1/charge' && req.method === 'POST') {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       return res.end(JSON.stringify({
